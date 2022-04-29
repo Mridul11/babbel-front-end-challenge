@@ -3,3 +3,9 @@ li{
     margin: 10px;
     text-align: center;
 }
+
+li > img{
+    border-radius: 50%;
+    border: 1px solid black;
+    margin: 5px;
+}

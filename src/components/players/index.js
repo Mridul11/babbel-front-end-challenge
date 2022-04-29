@@ -14,8 +14,8 @@ export default function Players({ data, player, dataSet, idx }) {
   });
   return (
     <li>
-      <img src={player.imageUrl} alt={player.name} />
       <p>{player.name}</p>
+      <img src={player.imageUrl} alt={player.name} />
       <p>{player.initialValue}</p>
       {data.scoreToWin && (
         <p>{player.initialValue >= data.scoreToWin ? "Winner" : ""}</p>
