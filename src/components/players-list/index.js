@@ -3,7 +3,7 @@ import Players from "../players";
 
 import "./players-list.scss";
 
-const PlayersList = ({ data, dataSet, disbleAllSet, disbleAll }) => {
+const PlayersList = ({ data, dataSet, disbleAllSet, disbleAll, currentBtn, currentBtnSet }) => {
   return (
     <ul>
       {data.players &&
@@ -16,6 +16,8 @@ const PlayersList = ({ data, dataSet, disbleAllSet, disbleAll }) => {
             data={data}
             player={player}
             dataSet={dataSet}
+            currentBtn={currentBtn}
+            currentBtnSet={currentBtnSet}
           />
         ))}
     </ul>

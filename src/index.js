@@ -7,6 +7,7 @@ import "./index.scss";
 const App = () => {
   const [data, dataSet] = useState({});
   const [disbleAll, disbleAllSet] = useState(false);
+  const [currentBtn, currentBtnSet] = useState(0);
 
   useEffect(() => {
     async function callMe() {
@@ -31,6 +32,8 @@ const App = () => {
         dataSet={dataSet}
         disbleAll={disbleAll}
         disbleAllSet={disbleAllSet}
+        currentBtn={currentBtn}
+        currentBtnSet={currentBtnSet}
       />
       <div className="scoretobeat"> Score to Beat: {data.scoreToWin}</div>
     </div>

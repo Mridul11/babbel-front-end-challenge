@@ -9,6 +9,8 @@ export default function Players({
   idx,
   disbleAllSet,
   disbleAll,
+  currentBtn,
+  currentBtnSet
 }) {
   useEffect(() => {
     if (player.initialValue >= data.scoreToWin) {
@@ -35,6 +37,8 @@ export default function Players({
         dataSet={dataSet}
         data={data}
         idx={idx}
+        currentBtn={currentBtn}
+        currentBtnSet={currentBtnSet}
       />
     </li>
   );
