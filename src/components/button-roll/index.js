@@ -1,16 +1,23 @@
 import React, { useState } from "react";
 import "./button-roll.scss";
 
-export default function ButtonRoll({ data, player, dataSet, disbleAll, idx, currentBtn, currentBtnSet }) {
+export default function ButtonRoll({
+  data,
+  player,
+  dataSet,
+  idx,
+  currentBtn,
+  currentBtnSet,
+}) {
   const rndInt = Math.floor(Math.random() * 6) + 1;
 
   const handleOnClick = (data, player) => {
-    if(currentBtn === data.players.length - 1) {
+    if (currentBtn === data.players.length - 1) {
       currentBtnSet(0);
-    }else{
+    } else {
       currentBtnSet((currentBtn) => currentBtn + 1);
     }
-    
+
     dataSet({
       ...data,
       players: data.players.map((obj) => {
@@ -28,7 +35,6 @@ export default function ButtonRoll({ data, player, dataSet, disbleAll, idx, curr
   return (
     <button
       className={currentBtn !== idx ? "hideBtn" : ""}
-      disabled={disbleAll}
       onClick={() => handleOnClick(data, player)}
     >
       Roll

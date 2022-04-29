@@ -6,7 +6,6 @@ import "./index.scss";
 
 const App = () => {
   const [data, dataSet] = useState({});
-  const [disbleAll, disbleAllSet] = useState(false);
   const [currentBtn, currentBtnSet] = useState(0);
 
   useEffect(() => {
@@ -30,8 +29,6 @@ const App = () => {
       <PlayersList
         data={data}
         dataSet={dataSet}
-        disbleAll={disbleAll}
-        disbleAllSet={disbleAllSet}
         currentBtn={currentBtn}
         currentBtnSet={currentBtnSet}
       />

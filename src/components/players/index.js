@@ -7,10 +7,9 @@ export default function Players({
   player,
   dataSet,
   idx,
-  disbleAllSet,
-  disbleAll,
+
   currentBtn,
-  currentBtnSet
+  currentBtnSet,
 }) {
   useEffect(() => {
     if (player.initialValue >= data.scoreToWin) {
@@ -19,7 +18,7 @@ export default function Players({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ matchId: data.matchId, winnerId: player.id }),
       });
-      disbleAllSet(true);
+      currentBtnSet(-1);
     }
   });
   return (
@@ -31,8 +30,6 @@ export default function Players({
         <p>{player.initialValue >= data.scoreToWin ? "Winner" : ""}</p>
       )}
       <ButtonRoll
-        disbleAllSet={disbleAllSet}
-        disbleAll={disbleAll}
         player={player}
         dataSet={dataSet}
         data={data}
