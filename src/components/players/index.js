@@ -1,8 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import ButtonRoll from "../button-roll";
 import "./players.scss";
 
-export default function Players({ data, player, dataSet, idx }) {
+export default function Players({
+  data,
+  player,
+  dataSet,
+  idx,
+  disbleAllSet,
+  disbleAll,
+}) {
   useEffect(() => {
     if (player.initialValue >= data.scoreToWin) {
       fetch("http://localhost:8000/api/game", {
@@ -10,6 +17,7 @@ export default function Players({ data, player, dataSet, idx }) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ matchId: data.matchId, winnerId: player.id }),
       });
+      disbleAllSet(true);
     }
   });
   return (
@@ -20,7 +28,14 @@ export default function Players({ data, player, dataSet, idx }) {
       {data.scoreToWin && (
         <p>{player.initialValue >= data.scoreToWin ? "Winner" : ""}</p>
       )}
-      <ButtonRoll player={player} dataSet={dataSet} data={data} idx={idx} />
+      <ButtonRoll
+        disbleAllSet={disbleAllSet}
+        disbleAll={disbleAll}
+        player={player}
+        dataSet={dataSet}
+        data={data}
+        idx={idx}
+      />
     </li>
   );
 }

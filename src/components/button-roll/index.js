@@ -1,7 +1,7 @@
 import React from "react";
 import "./button-roll.scss";
 
-export default function ButtonRoll({ data, player, dataSet }) {
+export default function ButtonRoll({ data, player, dataSet, disbleAll }) {
   const rndInt = Math.floor(Math.random() * 6) + 1;
 
   const handleOnClick = (data, player) => {
@@ -12,7 +12,6 @@ export default function ButtonRoll({ data, player, dataSet }) {
           return {
             ...player,
             initialValue: player.initialValue + rndInt,
-            disabled: !player.disabled,
           };
         }
         return obj;
@@ -20,5 +19,9 @@ export default function ButtonRoll({ data, player, dataSet }) {
     });
   };
 
-  return <button onClick={() => handleOnClick(data, player)}>Roll</button>;
+  return (
+    <button disabled={disbleAll} onClick={() => handleOnClick(data, player)}>
+      Roll
+    </button>
+  );
 }
