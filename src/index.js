@@ -6,6 +6,7 @@ import "./index.scss";
 
 const App = () => {
   const [data, dataSet] = useState({});
+  const [disbleAll, disbleAllSet] = useState(false);
 
   useEffect(() => {
     async function callMe() {
@@ -25,7 +26,12 @@ const App = () => {
   console.log(data);
   return (
     <div className="grid-container">
-      <PlayersList data={data} dataSet={dataSet} />
+      <PlayersList
+        data={data}
+        dataSet={dataSet}
+        disbleAll={disbleAll}
+        disbleAllSet={disbleAllSet}
+      />
       <div className="scoretobeat"> Score to Beat: {data.scoreToWin}</div>
     </div>
   );
