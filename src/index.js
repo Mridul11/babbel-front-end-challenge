@@ -26,13 +26,15 @@ const App = () => {
   console.log(data);
   return (
     <div className="grid-container">
+      <h1 className="heading">BEAT IT</h1>
+      <div className="scoretobeat"> Score to Beat: {data.scoreToWin}</div>
+
       <PlayersList
         data={data}
         dataSet={dataSet}
         currentBtn={currentBtn}
         currentBtnSet={currentBtnSet}
       />
-      <div className="scoretobeat"> Score to Beat: {data.scoreToWin}</div>
     </div>
   );
 };

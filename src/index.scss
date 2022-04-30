@@ -7,7 +7,7 @@ body {
 
 .grid-container{
   display: grid;
-  grid-template-columns:  minmax(auto, 1fr) minmax(auto, 1fr);
+  grid-template-rows:  minmax(auto, 1fr);
 }
 
 .scoretobeat{
@@ -19,4 +19,9 @@ body {
   color: #fff;
   background-color: #000;
   padding: 10px;
+}
+
+.heading{
+  text-align: center;
+  font-size: 2rem;
 }
