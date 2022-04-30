@@ -2,12 +2,11 @@ import React, { useEffect, useState } from "react";
 import ButtonRoll from "../button-roll";
 import "./players.scss";
 
-export default function Players({
+function Player({
   data,
   player,
   dataSet,
   idx,
-
   currentBtn,
   currentBtnSet,
 }) {
@@ -20,7 +19,7 @@ export default function Players({
       });
       currentBtnSet(-1);
     }
-  });
+  }, [player.initialValue]);
   return (
     <li>
       <p>{player.name}</p>
@@ -40,3 +39,11 @@ export default function Players({
     </li>
   );
 }
+
+const Players = React.memo(Player, (nextProps, nextState) => {
+  if(nextProps.player.initialValue >= nextProps.data.scoreToWin) {
+    return true;
+  }
+});
+
+export default Players;
